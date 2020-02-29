@@ -1,5 +1,6 @@
 # python-tool
 一些自己写的日常工作用的提高效率的脚本           
-写脚本的时间永小于做那些事情的时间         
+短小，有用               
 # 常用依赖
-https://github.com/ssut/py-googletrans      
+https://github.com/ssut/py-googletrans     
+https://docs.python.org/2/library/index.html
