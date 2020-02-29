@@ -11,16 +11,16 @@ user = ""
 password = ""
 packageConfig = {
     'web_uc': {
-        'local': 'J:\gitlab\uc2.xApplications\server\dist', #本地工程路径
-        'remote': '/usr/local/apollo/web_uc/dist', # 目标服务器目录
+        'local': '', #本地工程路径
+        'remote': '', # 目标服务器目录
         'upload': True, # 是否需要发版
-        'nextVersionPath': '\\\\gitlab.yealink.com\uc_module\web_uc\\23.253.0.20', # 放包的的地址，直接写下个版本号，会自动创建
+        'nextVersionPath': '', # 放包的的地址，直接写下个版本号，会自动创建
     },
     'web_ume': {
         'local': '',
-        'remote': '/usr/local/apollo/web_ume/dist',
+        'remote': '',
         'upload': False,
-        'nextVersionPath': '\\\\gitlab.yealink.com\uc_module\web_ume\\23.253.0.21',
+        'nextVersionPath': '',
     }
 }
 # 中文要注意编码，u
