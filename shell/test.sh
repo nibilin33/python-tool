@@ -24,6 +24,15 @@ tty_red="$(tty_mkbold 31)"
 tty_bold="$(tty_mkbold 39)"
 tty_reset="$(tty_escape 0)"
 
+shell_join() {
+  local arg
+  printf "%s" "$1"
+  shift
+  for arg in "$@"; do
+    printf " "
+    printf "%s" "${arg// /\ }"
+  done
+}
 ohai() {
   printf "${tty_blue}==>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
 }
@@ -47,6 +56,6 @@ elif [[ "$OS" != "Darwin" ]]; then
 fi
 
 ohai "start install abd"
-execute "adb -h"
+execute "adb" "help"
 ohai "start install scrcpy"
-execute "scrcpy --help"
+execute "scrcpy" "--help"
