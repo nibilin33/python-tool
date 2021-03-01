@@ -735,3 +735,29 @@ ohai "start install abd"
 execute "brew" "install" "adb"
 ohai "start install scrcpy"
 execute "brew" "install" "scrcpy"
+ohai "download lique"
+execute "cd" "${HOME}"
+rm -rf LiqueApp
+execute "curl" "-L" "-o" "LiqueApp.zip" "--output" "~/" "https://gw.alipayobjects.com/os/bmw-prod/c27bd0f5-d79c-48d5-8535-e145a49c34e0.zip"
+unzip "LiqueApp.zip"
+set -e
+trap 'catch $? $LINENO' EXIT
+catch() {
+  echo "catching!"
+  echo "$1"
+  if [ "$1" != "0" ]; then
+    # error handling goes here
+    echo -n '
+export LIQUE_HOME=${HOME}/LiqueApp/lique.app/Contents/Resources
+export PATH=$LIQUE_HOME:$PATH
+alias lique="lique.sh"
+          ' >> $HOME/.bash_profile
+    source ~/.bash_profile
+    echo "- Run \`lique\` to get started"
+  fi
+}
+[[ -z ${LIQUE_HOME-} ]] \
+  && echo "ERROR: Unset variable \${variable}" \
+  && exit 1 \
+  || echo "INFO: Using variable (${LIQUE_HOME})"
+echo "- Run \`lique\` to get started"
