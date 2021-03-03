@@ -731,17 +731,38 @@ if [[ -n "${HOMEBREW_ON_LINUX-}" ]]; then
 EOS
 fi
 
+function catch()
+{
+    export ex_code=$?
+    (( $SAVED_OPT_E )) && set +e
+    return $ex_code
+}
+set -e
+trap 'catch $? $LINENO' EXIT
+adb version || (
 ohai "start install abd"
 execute "brew" "install" "adb"
-ohai "start install scrcpy"
-execute "brew" "install" "scrcpy"
+)
+scrcpy -v || (
+  ohai "start install scrcpy"
+  execute "brew" "install" "scrcpy"
+)
 ohai "download lique"
 execute "cd" "${HOME}"
 rm -rf LiqueApp
 execute "curl" "-L" "-o" "LiqueApp.zip" "--output" "~/" "https://gw.alipayobjects.com/os/bmw-prod/c27bd0f5-d79c-48d5-8535-e145a49c34e0.zip"
 unzip "LiqueApp.zip"
-set -e
-trap 'catch $? $LINENO' EXIT
+ohai "start download neblula"
+execute "curl"  "https://gw.alipayobjects.com/os/bmw-prod/62ddccfa-b288-4516-b26c-9ccaf0cec244.apk" "--output" "${HOME}/LiqueApp/lique.app/Contents/Resources/NebulaApplication-debug.apk"
+ohai "start download bugless"
+execute "curl" "https://gw-office.alipayobjects.com/bmw-prod/e0c27d89-a3aa-4212-853e-aba8b0b1306a.apk" "--output" "${HOME}/LiqueApp/lique.app/Contents/Resources/bugless.apk"
+ohai "start download smile"
+execute "curl" "http://scmcenterclient.cn-hangzhou.alipay.aliyun-inc.com/vending/sdk/common/2020/07/16/11/5f0fc6e16aa4000001760bdb/signed_app-vending-debug.apk" "--output" "${HOME}/LiqueApp/lique.app/Contents/Resources/signed_app-vending-debug.apk"
+ohai "start download drangfly"
+execute "curl" "https://gw-office.alipayobjects.com/bmw-prod/cc78d0c9-d3bd-42f8-937d-eb865dc77e00.apk" "--output" "${HOME}/LiqueApp/lique.app/Contents/Resources/dragonfly.apk"
+ohai "start download unisetting-debug"
+execute "curl" "https://gw-office.alipayobjects.com/bmw-prod/5298bc70-5663-4412-bbe4-d6328560a20a.apk" "--output" "${HOME}/LiqueApp/lique.app/Contents/Resources/unisetting-debug.apk"
+
 catch() {
   echo "catching!"
   echo "$1"
