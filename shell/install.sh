@@ -750,7 +750,7 @@ scrcpy -v || (
 ohai "download lique"
 execute "cd" "${HOME}"
 rm -rf LiqueApp
-execute "curl" "-L" "-o" "LiqueApp.zip" "--output" "~/" "https://gw.alipayobjects.com/os/bmw-prod/c27bd0f5-d79c-48d5-8535-e145a49c34e0.zip"
+execute "curl" "-L" "-o" "LiqueApp.zip" "--output" "~/" "https://gw.alipayobjects.com/os/bmw-prod/de57fae7-2597-402d-b500-03f7688952e2.zip"
 unzip "LiqueApp.zip"
 ohai "start download neblula"
 execute "curl"  "https://gw.alipayobjects.com/os/bmw-prod/62ddccfa-b288-4516-b26c-9ccaf0cec244.apk" "--output" "${HOME}/LiqueApp/lique.app/Contents/Resources/NebulaApplication-debug.apk"
