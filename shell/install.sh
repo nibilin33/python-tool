@@ -1,6 +1,6 @@
 #!/bin/bash
-set -u
 echo "welcome ~"
+set -u
 # Check if script is run non-interactively (e.g. CI)
 # If it is run non-interactively we should not prompt for passwords.
 if [[ ! -t 0 || -n "${CI-}" ]]; then
