@@ -19,6 +19,8 @@ def analyseRule(url='',type=1):
     if rule_map['link'] == type:
         return r.html.absolute_links
     if rule_map['li'] == type:
+        # todo:滚动加载处理
+        # r.html.render(scrolldown=100)
         def get_link(it):
             return it.attrs['data-link']
         result = map(get_link,r.html.find('li.album__list-item'))
@@ -52,6 +54,11 @@ def createPdf(url,filename):
 
 if __name__ ==  '__main__':
     ana_url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI2MDYzNjQ2MA==&action=getalbum&album_id=1747213984925057027&scene=173&from_msgid=2247499658&from_itemidx=1&count=3&nolastread=1&devicetype=iOS15.2&version=18001a2f&lang=zh_CN&nettype=WIFI&ascene=78&fontScale=100&wx_header=3'
+    work_list = [
+        'https://mp.weixin.qq.com/mp/homepage?__biz=Mzg5MDA5Mzk0MQ==&hid=5&sn=4e77f0a0c22a165a643fc7e9e1527e29&scene=18&devicetype=iOS15.2&version=18001a2f&lang=zh_CN&nettype=WIFI&ascene=7&session_us=gh_1bc7b3947244&fontScale=100&wx_header=3',
+        'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI2MDYzNjQ2MA==&action=getalbum&album_id=2467381321611558912&scene=173&from_msgid=2247500859&from_itemidx=1&count=3&nolastread=1#wechat_redirect',
+        'http://mp.weixin.qq.com/mp/homepage?__biz=MzI2MDYzNjQ2MA==&hid=5&sn=434d2fc9f419ea35328fdc38403a425e&scene=18#wechat_redirect'
+    ]
     analyseHtml(ana_url,2)
 
 
