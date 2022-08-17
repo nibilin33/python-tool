@@ -5,3 +5,5 @@
 https://github.com/ssut/py-googletrans         
 https://docs.python.org/2/library/index.html    
 [pdf文本提取工具](https://github.com/euske/pdfminer)    
+[urltopdf](https://pdfcrowd.com/api/html-to-pdf-python/)  
+[爬虫用requests_html](https://github.com/psf/requests-html) 
