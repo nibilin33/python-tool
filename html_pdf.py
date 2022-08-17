@@ -7,9 +7,9 @@ from requests_html import HTMLSession
 
 # english digest: https://mp.weixin.qq.com/s/JdtaFknT4FBYTBIZM4BqAw
 
-def analyseHtml():
+def analyseHtml(url):
     session = HTMLSession()
-    r = session.get('https://mp.weixin.qq.com/s/JdtaFknT4FBYTBIZM4BqAw')
+    r = session.get(url)
     links = r.html.absolute_links
     # asysession = AsyncHTMLSession()
     for item in links:
@@ -35,6 +35,7 @@ def createPdf(url,filename):
 
 
 if __name__ ==  '__main__':
-    analyseHtml()
+    ana_url = 'https://mp.weixin.qq.com/s/JdtaFknT4FBYTBIZM4BqAw'
+    analyseHtml(ana_url)
 
 
