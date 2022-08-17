@@ -1,4 +1,5 @@
 # coding: utf-8
+from turtle import rt
 import pdfcrowd
 import sys
 from requests_html import HTMLSession
@@ -19,8 +20,8 @@ def analyseRule(url='',type=1):
     if rule_map['link'] == type:
         return r.html.absolute_links
     if rule_map['li'] == type:
-        # todo:滚动加载处理
-        # r.html.render(scrolldown=100)
+        # 滚动加载处理
+        r.html.render(scrolldown=5,sleep=2)
         def get_link(it):
             return it.attrs['data-link']
         result = map(get_link,r.html.find('li.album__list-item'))
