@@ -10,3 +10,11 @@ https://docs.python.org/2/library/index.html
 # 生成requirements.txt
 pip install pipreqs     
 pipreqs ./ --encoding=utf8 --ignore 'diff,api,i18n'     
+
+# python desk app
+py2app, setuptools
+create-dmg  
+pyinstaller -s -F -n filename laucher.py
+# configparser
+# pure-python-adb
+
