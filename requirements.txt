@@ -1,0 +1,5 @@
+paramiko==2.11.0
+pdfcrowd==5.7.0
+pdfplumber==0.7.5
+requests==2.26.0
+requests_html==0.10.0
