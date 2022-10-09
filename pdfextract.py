@@ -63,7 +63,7 @@ def extract_content(file,pages,tag):
                 extract_page(page,tag)
 
 if __name__ ==  '__main__':
-    file = '/Users/nibl/Desktop/书籍/计算机英语/计算机专业英语单词1500.pdf'
+    file = ''
     pages = []
-    tag = '计算机专业英语单词1500.pdf'
+    tag = ''
     extract_content(file,pages,tag)
