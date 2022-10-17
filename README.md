@@ -1,6 +1,5 @@
 # python-tool
-一些自己写的日常工作用的提高效率的脚本           
-短小，有用               
+Some of the scripts I have written to improve efficiency in my daily work                        
 # 常用依赖
 https://github.com/ssut/py-googletrans         
 https://docs.python.org/2/library/index.html    
